@@ -5,4 +5,4 @@
 
 ## Lectures
 - Software Architecture and Technology for Large Scale Systems
--
+
