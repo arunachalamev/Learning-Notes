@@ -32,3 +32,22 @@
 * Another issue with Batch prediction, we need to know the request upfront - like recommendation. For case of unpredictable queries, ( eg: translate ) we need to use online prediction
 * Non catastrophic application , we can use Batch predictions. For time crucial applications, we need to use online predictions
 * Legacy system mainly used batch prediction, since the techonlogy was mainly dominated by big data processing components like MapReduce framework. Recent advancement in streaming technologies and feature stores, enabled for unified frameword for batch and online predictions
+
+
+## Faster Inference
+There are three approaches to reduce inference latency - make model smaller (model compression), make the hardware faster, make faster inference (inference optimization).
+### Model Compression
+* Common Four type of techniques for Model Compression
+  - **Low-Rank-optimization:** Replace high dimensional tensors to lower-dimensional tensors. For example: compact convolutional filters
+  - **Knowledge distillation:** Smaller model (student) is tranied to mimic a larger or ensemble models (teacher). Example: DistillBert and BERT models. Pros: work irrespective of difference in architecture b/w student and teacher model. Cons: Student is highly dependent on availability of teacher network. 
+  - **Pruning:** Idea of pruning for NN is borrowed from decision trees. Either we can remove the less important node (changes architecture) or setting the least useful parameter to zero (no change to architecuture)
+  - **Quantization:** Reduce the size of model by using fewer bits to represent model parameters. It reduces model memory footprint and also improves the computational speed.
+ 
+ ### ML on the cloud and on the Edge
+* Running model on cloud is easier due to exitence of managed cloud services. They allow to host the model, expose the endpoint for requesting prediction and also enables backend computations. However, the drawback of cloud computing is increasing cloud cost. 
+* Model are moved toward edge computing for various reasons: lower cost, can serve no internet location, less bandwidth usage since data need not be uploaded, privacy and GDPR are taken care. However, the edge devices needs to be powerful enough to run models. Hardware are being developed to achieve edge computing. 
+
+### Model Optimization
+* Two ways to optimize ML models: Locally (optimize set of operators) and Globally(optimize entire computation graph).
+* There are 4 common technique employed for local optimization, namely - Vectorization, Paralleization, Loop tilting, Operator fusion.
+* Another approach is to use ML to optimize ML models - like using ML to find the optimal architecture, optimal initial weight etc
