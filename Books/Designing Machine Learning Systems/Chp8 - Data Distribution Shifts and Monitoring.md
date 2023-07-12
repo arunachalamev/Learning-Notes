@@ -35,3 +35,5 @@
         - covariate shift - when P(X) changes but P(Y|X) remains the same. Input distribution changes. Eg: when training data is artifically altered to make it easire for model to learn.
         - label shift - when P(Y) changes but P(X|Y) remains the same. Output distribution changes. when input changes, output changes. But not all covariate shifts results in label shift
         - concept shift - P(Y|X) changes but P(X) remains same. Same input but different output. In many cases, concept drifts are cyclic or seasonal. for example - rideshare price will fluctuate on weekdays vs weekeds. Compaines will have different model for seasonal or cyclic drifts.
+
+//Test from VS code
